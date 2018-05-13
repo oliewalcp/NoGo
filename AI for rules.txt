@@ -1,0 +1,26 @@
+AI需要实现并向外提供的三个函数（不是类或结构体的成员函数）：
+
+/* 获取AI限制的棋盘大小
+ * param[LimitRow]:_out_ 限制的棋盘的行数，0表示无限制；当该值传入0时，必须返回-1
+ * param[LimitColumn]:_out_ 限制的棋盘的列数，0表示无限制；当该值传入0时，必须返回-1
+ */
+void getLimit(int &LimitRow, int &LimitColumn);
+
+/* 初始化AI数据
+ * param[BoardRow]:_in_ 棋盘行数；当该值传入0时，必须返回true
+ * param[BoardColumn]:_in_ 棋盘列数；当该值传入0时，必须返回true
+ * param[player]:_in_ 当前AI所属玩家编号
+ * return:初始化成功返回true，否则返回false
+ */
+bool initData(int BoardRow, int BoardColumn, int player);
+
+/* 传送并获取下棋位置（当Row和Column传入0时，表明该AI是玩家1）
+ * param[Row]:_in_ _out_ 传入对手下棋的行号，传出自己下棋的行号；当player == 0时，必须返回-1
+ * param[Column]:_in_ _out_ 传入对手下棋的列号，传出自己下棋的列号；当player == 0时，必须返回-1
+ * param[player]:_in_ 传入对手的所属玩家编号（1或2）
+ */
+void getPosition(int &Row, int &Column, int player);
+
+若AI未实现并提供以上三个函数，则在程序中将无法使用
+AI文件格式：.dll  .so
+AI文件可在Windows系统编写（.dll文件），也可在Linux系统编写（.so文件）
